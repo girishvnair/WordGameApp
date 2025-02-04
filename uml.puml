@@ -1,0 +1,66 @@
+@startuml
+title Word Classification Game - UML Class Diagram
+
+' Define classes
+class WordGameApp {
+    - root: Tk
+    - username: str
+    - current_level: int
+    - db: Database
+    - game_logic: GameLogic
+    - drag_drop: DragDrop
+    + setup_login_screen()
+    + login()
+    + setup_game_screen()
+    + load_level(level: int)
+    + check_answers()
+    + clear_screen()
+}
+
+class Database {
+    - conn: sqlite3.Connection
+    - cursor: sqlite3.Cursor
+    + __init__(db_name: str)
+    + create_tables()
+    + add_user(username: str)
+    + get_progress(username: str) : int
+    + update_progress(username: str, level: int)
+}
+
+class GameLogic {
+    - words_data: dict
+    + __init__(words_file: str)
+    + check_answers(level: int, user_answers: dict) : bool
+}
+
+class DragDrop {
+    - root: Tk
+    - word_buttons: dict
+    - adj_frame: Frame
+    - noun_frame: Frame
+    - current_dragging_word: Button
+    + __init__(root: Tk, word_buttons: dict, adj_frame: Frame, noun_frame: Frame)
+    + start_drag(event)
+    + on_drag(event)
+    + on_drop(event)
+    + is_inside(frame: Frame, x: int, y: int) : bool
+}
+
+class Settings {
+    + BG_COLOR: str
+    + ADJ_COLOR: str
+    + NOUN_COLOR: str
+    + WORD_BG_COLOR: str
+    + WINDOW_WIDTH: int
+    + WINDOW_HEIGHT: int
+    + WORDS_FILE: str
+    + DATABASE_NAME: str
+}
+
+' Relationships
+WordGameApp --> Database : "Stores User Progress"
+WordGameApp --> GameLogic : "Handles Word Validation"
+WordGameApp --> DragDrop : "Manages Drag & Drop"
+WordGameApp --> Settings : "Uses UI Configuration"
+
+@enduml
