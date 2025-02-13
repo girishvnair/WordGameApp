@@ -29,6 +29,7 @@ class GameCanvas:
 
             x += itemWidth + spacing
 
+    # TODO: make henLines depend on henID
     def createHen(self, henID):
         global hen
         hen = tk.PhotoImage(file=f"frontend/assets/hen{henID}.png")
