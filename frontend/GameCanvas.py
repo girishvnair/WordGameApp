@@ -86,7 +86,7 @@ class GameCanvas:
 
         self.createWordBox(x, y, textWidth + innerPadding * 2, textHeight + innerPadding * 2, word)
         self.canvas.tag_raise(canvasText)
-        self.createBind(word)
+        self.createWordKeyBind(word)
 
     def moveWord(self, e, tag):
         bounds = self.canvas.bbox(tag)
@@ -124,7 +124,7 @@ class GameCanvas:
         if validateAnswer(wordsInSlots):
             self.win()
 
-    def createBind(self, tag):
+    def createWordKeyBind(self, tag):
         self.canvas.tag_bind(tag, "<B1-Motion>", lambda e: self.moveWord(e, tag))
         self.canvas.tag_bind(tag, "<ButtonRelease-1>", lambda e: self.snapWord(e, tag))
 

@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from backend.main import getWords, getHenID
+from backend.main import getNouns, getHenID
 from frontend.GameCanvas import GameCanvas
 
 bgColor = "deepskyblue"
@@ -18,7 +18,7 @@ gameCanvas = GameCanvas(root, 800, 440, bgColor)
 
 henID = getHenID()
 gameCanvas.createHen(henID)
-gameCanvas.addWords(getWords(henID))
+gameCanvas.addWords(getNouns(henID))
 
 gameCanvas.place(x=0, y=60)
 root.mainloop()
