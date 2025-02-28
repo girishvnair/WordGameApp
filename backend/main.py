@@ -3,6 +3,7 @@ def getHenID():
     return 1
 
 # TODO
+# CANNOT BE DUPLICATE WORDS
 def getWords(henID):
     return ["Hatt", "Kavaj", "Klänning", "Kjol", "Solhatt",
             "Hoodie", "Väst", "Klacksko", "Handske", "Sandal",
