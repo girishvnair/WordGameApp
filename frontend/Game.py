@@ -7,6 +7,7 @@ from backend.Position import Position
 from frontend.GameWord import GameWord
 from frontend.RoundedRectangle import RoundedRectangle
 
+# "Restart" and "Levels" button not fully implemented
 class Game:
 
     words = [] #

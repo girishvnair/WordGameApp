@@ -8,6 +8,7 @@ from backend.main import getCharacterPaths
 from frontend.GameWord import GameWord
 from frontend.RoundedRectangle import RoundedRectangle
 
+# Very buggy, not yet done
 class LevelMaker:
 
     words = [] #
